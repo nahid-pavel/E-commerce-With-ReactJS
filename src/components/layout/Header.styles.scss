@@ -4,3 +4,16 @@
   color: #fff;
   cursor: pointer;
 }
+
+.cart_items_count {
+  position: absolute;
+  right: 85px;
+  top: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  background-color: #fff;
+  text-align: center;
+  color: blue;
+  font-weight: bold;
+}
