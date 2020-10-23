@@ -5,8 +5,8 @@ import ProductItem from "./ProductItem";
 function Products() {
   return (
     <div>
-      {products.map((product) => {
-        return <ProductItem product={product} />;
+      {products.map((product, index) => {
+        return <ProductItem key={index} product={product} />;
       })}
     </div>
   );

@@ -4,11 +4,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { Header } from "./components";
 import { Switch, Route } from "react-router-dom";
+import CartItems from "./components/cart/CartItems";
 
 function Home() {
   return (
     <>
       <Header />
+      <CartItems />
+
       <div className="container">
         <Switch>
           <Route exact path="/" component={Homepage} />
