@@ -1,11 +1,12 @@
 import React from "react";
+import Login from "../../components/auth/Login";
 
-const LoginPage = () => {
+function LoginPage() {
   return (
     <div>
-      <h1> Login page</h1>
+      <Login />
     </div>
   );
-};
+}
 
 export default LoginPage;
