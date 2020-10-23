@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { CartFill, Person } from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
 import "./Header.styles.scss";
 
 const Header = () => {
@@ -13,10 +14,10 @@ const Header = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <Nav.Link href="#home" className="m-2">
+          <Nav.Link as={Link} to="/" className="m-2">
             Home
           </Nav.Link>
-          <Nav.Link href="#link" className="m-2">
+          <Nav.Link as={Link} to="/about" className="m-2">
             About
           </Nav.Link>
           <OverlayTrigger
@@ -33,7 +34,7 @@ const Header = () => {
             delay={{ show: 250, hide: 400 }}
             overlay={<Tooltip id="button-tooltip">Login</Tooltip>}
           >
-            <Nav.Link className="m-2">
+            <Nav.Link as={Link} className="m-2" to="/login">
               <Person className="user_icon" />
             </Nav.Link>
           </OverlayTrigger>
