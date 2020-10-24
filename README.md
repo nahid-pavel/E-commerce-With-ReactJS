@@ -8,6 +8,10 @@ First clone the repository to your local machine:
 
 `git clone https://github.com/nahid-pavel/MdNahidAhmedPavel_SE_JAVA_JS_1.git`
 
+Go to the project folder:
+
+`cd MdNahidAhmedPavel_SE_JAVA_JS_1`
+
 Install the requirements By:
 
 `npm install`
