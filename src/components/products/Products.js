@@ -1,13 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { products } from "./data";
-import ProductItems from "./ProductItems";
+import ProductItem from "./ProductItem";
+import Pagination from "./Pagination";
 
 function Products() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(6);
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = products.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
+  console.log(products);
+  console.log(currentProducts);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
-    <div>
-      {products.map((product, index) => {
-        return <ProductItems key={index} product={product} />;
-      })}
+    <div className="container mt-3 ">
+      <h2 style={{ borderBottom: "2px solid green" }} className="m-3">
+        Collections
+      </h2>
+      <div className="row">
+        {currentProducts.map((item, index) => {
+          return <ProductItem key={index} item={item} />;
+        })}
+      </div>
+      <Pagination
+        productsPerPage={productsPerPage}
+        totalProducts={products.length}
+        paginate={paginate}
+      />
     </div>
   );
 }

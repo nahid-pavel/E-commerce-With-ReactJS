@@ -17,4 +17,13 @@
 
 .item_container {
   position: relative;
+
+  .name {
+    font-weight: bold;
+  }
+
+  .price {
+    color: green;
+    font-weight: bold;
+  }
 }
