@@ -1,0 +1,29 @@
+h1 {
+  font-size: 20px;
+  font-style: oblique;
+  text-align: center;
+  margin-top: 35px;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 30%;
+  right: 30%;
+  height: 0.5em;
+  border-top: 1px solid green;
+}
+
+.about_details {
+  img {
+    width: 100%;
+    min-height: 300px;
+    max-height: 300px;
+    border-radius: 5px;
+  }
+  h2 {
+    color: rgb(231, 142, 71);
+  }
+}
