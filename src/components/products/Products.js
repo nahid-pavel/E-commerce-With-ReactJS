@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { products } from "./data";
 import ProductItem from "./ProductItem";
 import Pagination from "./Pagination";
@@ -13,9 +13,6 @@ function Products() {
     indexOfFirstProduct,
     indexOfLastProduct
   );
-
-  console.log(products);
-  console.log(currentProducts);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 

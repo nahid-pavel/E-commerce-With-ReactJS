@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Form, Button, Container, Row, Col, Nav } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
-import { loginUser } from "../../redux/actions/authActions";
+import { loginUser, loginUserSuccess } from "../../redux/actions/authActions";
 
-const Login = ({ history }) => {
+const Login = ({ history, loginUserSuccess }) => {
+  if (sessionStorage.getItem("isLoggedIn")) {
+    history.push("/");
+  }
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  useEffect(() => {
-    if (sessionStorage.getItem("isLoggedIn")) {
-      history.push("/");
-    }
-  }, []);
+
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(email, password);
+
     let res = loginUser({ email, password });
     if (res) {
       setEmail("");
       setPassword("");
+      loginUserSuccess();
       history.push("/");
     } else {
       setError("Invalid username/password");
@@ -72,4 +72,4 @@ const Login = ({ history }) => {
   );
 };
 
-export default withRouter(connect(null)(Login));
+export default withRouter(connect(null, { loginUserSuccess })(Login));

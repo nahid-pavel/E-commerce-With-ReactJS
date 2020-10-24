@@ -1,6 +1,12 @@
 import { actionTypes } from "../constants";
 import { users } from "../reducers/userData";
 
+export const loginUserSuccess = () => {
+  return {
+    type: actionTypes.LOGIN_SUCCESS,
+  };
+};
+
 export const loginUser = (item) => {
   let result = false;
   let allUsers = users;
@@ -24,4 +30,7 @@ export const registerUser = (item) => {
 
 export const logOut = (item) => {
   sessionStorage.removeItem("isLoggedIn");
+  return {
+    type: actionTypes.LOGOUT,
+  };
 };

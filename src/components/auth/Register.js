@@ -4,6 +4,10 @@ import { Link, withRouter } from "react-router-dom";
 import { registerUser } from "../../redux/actions/authActions";
 
 const Register = ({ history }) => {
+  if (sessionStorage.getItem("isLoggedIn")) {
+    history.push("/");
+  }
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");

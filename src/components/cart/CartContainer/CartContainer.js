@@ -5,7 +5,6 @@ import CartItems from "../CartItems/CartItems";
 import "./CartContainer.scss";
 
 const CartContainer = ({ cartItems }) => {
-  console.log(cartItems, "cartItems");
   return (
     <div>
       <div className="purchase-card">

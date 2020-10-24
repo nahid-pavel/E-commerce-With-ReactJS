@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Navbar, Nav, OverlayTrigger, Tooltip, Button } from "react-bootstrap";
+import { Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { CartFill, Person, BoxArrowInRight } from "react-bootstrap-icons";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -8,19 +8,17 @@ import { logOut } from "../../redux/actions/authActions";
 import CartContainer from "../cart/CartContainer/CartContainer";
 import "./Header.styles.scss";
 
-const Header = ({ cart, toggleCart }) => {
-  const { cartItems, showCart } = cart;
+const Header = ({ cart, toggleCart, user }) => {
+  const { showCart } = cart;
   const [isLoggedIn, setIsloggedIn] = useState(false);
-  const checkLoggedIn = () => {
-    if (sessionStorage.getItem("isLoggedIn")) {
+
+  useEffect(() => {
+    if (user.isLoggedIn || sessionStorage.getItem("isLoggedIn")) {
       setIsloggedIn(true);
     } else {
       setIsloggedIn(false);
     }
-  };
-  useEffect(() => {
-    checkLoggedIn();
-  }, [checkLoggedIn]);
+  }, [user]);
 
   const logOutHandler = () => {
     setIsloggedIn(false);
@@ -51,7 +49,7 @@ const Header = ({ cart, toggleCart }) => {
             </Nav.Link>
           </OverlayTrigger>
           {showCart ? <CartContainer /> : null}
-          <div className="cart_items_count">{cartItems.length}</div>
+
           {!isLoggedIn ? (
             <OverlayTrigger
               placement="left"
@@ -82,6 +80,7 @@ const Header = ({ cart, toggleCart }) => {
 const mapStateToProps = (state) => {
   return {
     cart: state.cart,
+    user: state.user,
   };
 };
 

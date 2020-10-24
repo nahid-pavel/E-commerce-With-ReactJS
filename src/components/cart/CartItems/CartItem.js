@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { deleteFromCart } from "../../../redux/actions/cartActions";
 
 const CartItem = ({ item, deleteFromCart }) => {
-  console.log(item + "item");
   const styles = {
     mediaItem: {
       border: "1px solid black",
